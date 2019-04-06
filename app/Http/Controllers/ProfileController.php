@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +15,7 @@ class UserController extends Controller
     public function index()
     {
         //
-       return view('home');
+        return view('users.index');
     }
 
     /**
@@ -50,6 +48,9 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        $user = User::findOrFail($id);
+
+        return view('users.index',compact('user'));
     }
 
     /**
@@ -61,8 +62,6 @@ class UserController extends Controller
     public function edit($id)
     {
         //
-        $user = User::findOrFail($id);
-        return view('user.edit',compact('user'));
     }
 
     /**
@@ -75,27 +74,6 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $user = User::findOrFail($id);
-
-        $input = $request->all();
-
-        if($request->old_password){
-            if (Hash::check($request->old_password, $user->password)) {
-                if($request->password == $request->confirm_password){
-                    $input['password'] = bcrypt($request->password);
-                    $user->update($input);
-                    return redirect('/user/'.$id.'/edit')->with('success','User Password updated successfully');
-                }else{
-                    return redirect('/user/'.$id.'/edit')->with('error','Password and Confirm Password is not the same');
-                }
-            }else{
-                return redirect('/user/'.$id.'/edit')->with('error','Wrong Password');
-            }
-        }
-
-        $user->update($input);
-
-        return redirect('/user/'.$id.'/edit')->with('success','User updated successfully');
     }
 
     /**

@@ -9,11 +9,16 @@
 
             <div class="card">
                 <div class="card-body">
-                    <img src="img/pic.png" alt=""  class="rounded" width="150px" height="150px">
-                    <a href="user/{{Auth::user()->id}}/edit"><span>{{Auth::user()->first_name.' '.Auth::user()->last_name}}</span></a>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <img src="img/pic.png" alt=""  class="rounded" width="150px" height="150px">
+                        </div>
+                        <div class="col-lg-6 align-self-center" >
+                            <a href="profile/{{Auth::user()->id}}"><span>{{Auth::user()->first_name.' '.Auth::user()->last_name}}</span></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
 
         <div class="col-md-8">

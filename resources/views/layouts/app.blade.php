@@ -69,8 +69,8 @@
                                         @csrf
                                     </form>
 
-                                    <a class="dropdown-item" href="#"
-                                       onclick="event.preventDefault();">
+                                    <a class="dropdown-item" href="/user/{{Auth::user()->id}}/edit"
+                                       >
                                         {{ __('Profile Setting') }}
                                     </a>
                                 </div>

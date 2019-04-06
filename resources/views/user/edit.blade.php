@@ -2,14 +2,24 @@
 
 @section('content')
 
-
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header text-center">Update your Profile</div>
-                <div class="card-body align-self-center">
-                    <img src="{{url($user->img)}}" alt="" height="150px">
-                </div>
+                <form method="POST" action="{{route('user.update',$user->id)}}">
+                    <div class="card-body align-self-center">
+                        <div class="row ">
+                            <div class="col-lg-12 ">
+                                 <img src="{{url($user->img)}}" alt="" height="150px" name="img" class="mx-auto d-block rounded">
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-info" value="Update Avatar" class="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
                 <div class="card-body">
                     <div class="row" style="padding-left:5%">
                         <div class="col-lg-6 col-md-12">
@@ -62,8 +72,5 @@
             </div>
         </div>
     </div>
-
-
-
 
 @endsection

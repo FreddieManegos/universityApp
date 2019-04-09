@@ -74,7 +74,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $request->all();
         $user = User::findOrFail($id);
 
         $input = $request->all();

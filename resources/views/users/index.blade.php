@@ -8,7 +8,11 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                <img src="{{url($user->img)}}" alt=""  class="rounded" width="150px" height="150px">
+                             @if(Auth::user()->img != "img/pic.png")
+                                <img src="{{url('images/'.Auth::user()->img)}}" alt=""  class="rounded" width="150px" height="150px">
+                             @else
+                                 <img src="{{url('images/pic.png')}}" alt=""  class="rounded" width="150px" height="150px">
+                             @endif
                             </div>
                             <div class="col-lg-6 align-self-center">
                                 <span>{{$user->first_name.' '.$user->last_name}}</span>

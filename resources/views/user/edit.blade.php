@@ -10,13 +10,17 @@
                     <div class="row" style="padding-left:5%">
                         <div class="col-lg-6 col-md-12 border-right">
                         <h5>Change information</h5><hr>
-                        <form method="POST" action="{{route('user.update',$user->id)}}" file=true>
+                        <form method="POST" action="{{route('user.update',$user->id)}}" file=true enctype="multipart/form-data" >
                             @csrf
                             @method('PATCH')
                             <label for="img">Avatar</label>
                             <div class="col-lg-12 ">
                                 <div class="form-group">
-                                   <img src="{{url($user->img)}}" alt="" height="150px" name="img" class="mx-auto d-block rounded">
+                                    @if(Auth::user()->img != "img/pic.png")
+                                        <img src="{{url('images/'.$user->img)}}" alt="" height="150px" name="img" class="mx-auto d-block rounded">
+                                    @else
+                                        <img src="{{url('images/pic.png')}}" alt="" height="150px" name="img" class="mx-auto d-block rounded">
+                                    @endif
                                     <input type="file" class="" name="img">
                                 </div>
                             </div>

@@ -81,7 +81,7 @@
                 </div>
             </div>
         </nav>
-
+        @yield('course_content')
         <main class="py-4">
             @include('includes.flash_messages')
             @yield('content')

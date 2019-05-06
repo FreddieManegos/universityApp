@@ -19,6 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/user','UserController');
 
-Route::resource('/profile','ProfileController');
+Route::group(['middleware' => 'role:user'],function (){
+    Route::resource('/user','UserController');
+    Route::resource('/profile','ProfileController');
+    Route::resource('/course','CourseController');
+});

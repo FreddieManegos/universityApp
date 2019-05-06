@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     {{--{{ __('Login') }}--}}
-                    Student Login
+                    Login
                 </div>
 
                 <div class="card-body">

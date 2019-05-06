@@ -15,7 +15,8 @@ class ProfileController extends Controller
     public function index()
     {
         //
-        return view('users.index');
+        $course = Course::all();
+        return view('course.index',compact('course'));
     }
 
     /**
@@ -48,9 +49,9 @@ class ProfileController extends Controller
     public function show($id)
     {
         //
-        $user = User::findOrFail($id);
-
-        return view('users.index',compact('user'));
+//        $user = User::findOrFail($id);
+//        return $user;
+//        return view('users.index',compact('user'));
     }
 
     /**

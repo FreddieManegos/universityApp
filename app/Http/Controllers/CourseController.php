@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -14,8 +15,7 @@ class CourseController extends Controller
     public function index()
     {
         //
-        $data = ['name'=>'Freddie'];
-        return view('course.index',compact('data'));
+        return view('course.index');
     }
 
     /**
@@ -49,6 +49,8 @@ class CourseController extends Controller
     public function show($id)
     {
         //
+        $course = Course::findOrFail($id);
+        return view('course.index',compact('course'));
     }
 
     /**

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Threads;
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class ThreadsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,6 @@ class ProfileController extends Controller
     public function index()
     {
         //
-        $course = Course::all();
-        return view('course.index',compact('course'));
     }
 
     /**
@@ -43,24 +41,21 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Threads  $threads
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Threads $threads)
     {
         //
-        $user = User::findOrFail($id);
-        return $user;
-        return view('users.index',compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Threads  $threads
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Threads $threads)
     {
         //
     }
@@ -69,10 +64,10 @@ class ProfileController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Threads  $threads
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Threads $threads)
     {
         //
     }
@@ -80,10 +75,10 @@ class ProfileController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Threads  $threads
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Threads $threads)
     {
         //
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Threads;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -50,7 +51,8 @@ class CourseController extends Controller
     {
         //
         $course = Course::findOrFail($id);
-        return view('course.index',compact('course'));
+        $threads = Threads::where('course_id','=',$course->id)->get();
+        return view('course.index',compact('course','threads'));
     }
 
     /**

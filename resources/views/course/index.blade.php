@@ -2,6 +2,7 @@
 
 @section('course_content')
 <div class="jumbotron" style="margin:0px; padding-bottom: 30px;padding-left: 64px;">
+    <div class="container">
     <div class="row">
         <div class="col-lg-6">
             <h1 class="display-4">{{$course->code}}</h1>
@@ -9,47 +10,82 @@
             <button type="submit" class="btn-primary btn-lg btn-light"><h6>Enroll Now!</h6></button>
         </div>
         <div class="col-lg-6">
-
         </div>
      </div>
+    </div>
 </div>
-<ul class="nav border" style="padding-left: 3%; margin-bottom: 3%;">
-    <li class="nav-item">
-        <a class="nav-link active" href="#">About</a>
+<ul class="nav nav-tabs" style="padding-left: 3%; margin-bottom: 3%; margin-top: 5px;">
+    <li class="nav-item active">
+        <a class="nav-link active" data-toggle="tab" href="#about">About</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Syllabus</a>
+        <a class="nav-link" data-toggle="tab" href="#review">Reviews</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Reviews</a>
+        <a class="nav-link" data-toggle="tab" href="#instructor">Instructor</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Instructor</a>
+        <a class="nav-link" data-toggle="tab" href="#discussion">Discussions</a>
     </li>
 </ul>
-<div class="container">
-    <h1 class="lead" style="font-size: 3.0rem;">About the Course</h1>
-    <div class="row">
-        <div class="col-lg-6">
-            Rating star
-        </div>
-        <div class="col-lg-6">
-            <table>
-                <tr>
-                    <th><h6><strong>Location:</strong> {{$course->roomnumber}}</h6></th>
-                </tr>
-                <tr>
-                    <th><h6><strong>Start Time : </strong><em>{{$course->starttime}}</em></h6></th>
-                    <th><h6><strong>End Time: </strong><em>{{$course->endtime}}</em></h6></th>
-                </tr>
 
-            </table>
+<div class="tab-content">
+    <div id="about" class="tab-pane fade in active">
+        <div class="container">
+            <h1 class="lead" style="font-size: 3.0rem;">About the Course</h1>
+            <div class="row">
+                <div class="col-lg-6">
+                    Rating star
+                </div>
+                <div class="col-lg-6">
+                    <table>
+                        <tr>
+                            <th><h6><strong>Location:</strong> {{$course->roomnumber}}</h6></th>
+                        </tr>
+                        <tr>
+                            <th><h6><strong>Start Time : </strong><em>{{$course->starttime}}</em></h6></th>
+                            <th><h6><strong>End Time: </strong><em>{{$course->endtime}}</em></h6></th>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h5>{{$course->description}}</h5>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <h5>{{$course->description}}</h5>
+    <div id="review" class="tab-pane fade">
+        <div class="container">
+            <h3>Reviews</h3>
+        </div>
+    </div>
+    <div id="instructor" class="tab-pane fade">
+        <div class="container">
+            <h3>Instructors</h3>
+        </div>
+    </div>
+    <div id="discussion" class="tab-pane fade">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">Discussion</div>
+                <div class="card-body">
+                    @foreach($threads as $thread)
+                        <div class="row">
+                            <article>
+                                <div class="body">{{$thread->body}}</div>
+                            </article>
+                        </div>
+                        <hr>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
+
 @endsection

@@ -15,7 +15,7 @@
     </div>
 </div>
 <ul class="nav nav-tabs" style="padding-left: 3%; margin-bottom: 3%; margin-top: 5px;">
-    <li class="nav-item active">
+    <li class="nav-item">
         <a class="nav-link active" data-toggle="tab" href="#about">About</a>
     </li>
     <li class="nav-item">
@@ -46,7 +46,6 @@
                             <th><h6><strong>Start Time : </strong><em>{{$course->starttime}}</em></h6></th>
                             <th><h6><strong>End Time: </strong><em>{{$course->endtime}}</em></h6></th>
                         </tr>
-
                     </table>
                 </div>
             </div>
@@ -69,17 +68,20 @@
     </div>
     <div id="discussion" class="tab-pane fade">
         <div class="container">
-            <div class="card">
-                <div class="card-header">Discussion</div>
-                <div class="card-body">
+            <div class="col-lg-8">
+                <div class="card">
                     @foreach($threads as $thread)
-                        <div class="row">
+                        <div class="card-header"><a href="#">{{$thread->creator->first_name}}</a> discussed {{$thread->title}} on
+                            {{$thread->created_at->diffForHumans()}}</div>
+                        <div class="card-body">
                             <article>
                                 <div class="body">{{$thread->body}}</div>
                             </article>
+                            <hr>
                         </div>
-                        <hr>
+
                     @endforeach
+
                 </div>
             </div>
         </div>

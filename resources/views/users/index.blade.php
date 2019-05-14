@@ -24,7 +24,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                  <button type="button" name="Add Friend" class="form-control btn-success">Add Friend</button>
+                                  <button id="add_friend" type="button" name="Add Friend" class="form-control btn-success">Add Friend</button>
                                 </div>
                             </div>
                         </div>

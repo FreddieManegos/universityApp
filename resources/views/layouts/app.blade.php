@@ -21,7 +21,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
 </head>
 <body>
     <div id="app">
@@ -37,9 +40,15 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
 
+                    <ul class="navbar-nav mr-auto">
+                        @if(Auth::user())
+                        <div class="ui search">
+                             <input type="text" class="form-control" placeholder="Search user, course">
+                         </div>
+                        @endif
                     </ul>
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -89,5 +98,23 @@
             @yield('content')
         </main>
     </div>
+    <script>
+        $(document).ready(function(){
+           $("#add_friend").click(function () {
+               alert('Hello');
+           });
+        });
+
+        // $("#add_friend").click(function(){
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: 'addPost',
+        //         data: {
+        //
+        //         }
+        //     });
+        // });
+
+    </script>
 </body>
 </html>

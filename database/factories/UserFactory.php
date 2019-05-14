@@ -39,6 +39,18 @@ $factory->define(\App\Course::class, function (Faker $faker) {
     ];
 });
 
+$factory->define(\App\Threads::class, function (Faker $faker) {
+    return [
+        'user_id' => 1,
+        'course_id' => 2,
+        'title' => $faker->word,
+        'body' => $faker->sentence,
+    ];
+});
+
+
+
+
 
 
 

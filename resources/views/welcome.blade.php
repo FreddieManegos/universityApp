@@ -90,8 +90,6 @@
                             University-wide initiative to improve the mobile experience of students, faculty, staff, visitors, and neighbors
                             <br>who interact with Harvard's campus and community.
                         </p>
-                        <a href="{{ route('login') }}"> <button type="button" class="btn btn-primary btn-lg">Student</button></a>
-                        <button type="button" class="btn btn-primary btn-lg">Teacher</button>
                     </div>
                 </div>
             </div>

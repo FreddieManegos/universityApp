@@ -98,23 +98,6 @@
             @yield('content')
         </main>
     </div>
-    <script>
-        $(document).ready(function(){
-           $("#add_friend").click(function () {
-               alert('Hello');
-           });
-        });
 
-        // $("#add_friend").click(function(){
-        //     $.ajax({
-        //         type: 'POST',
-        //         url: 'addPost',
-        //         data: {
-        //
-        //         }
-        //     });
-        // });
-
-    </script>
 </body>
 </html>

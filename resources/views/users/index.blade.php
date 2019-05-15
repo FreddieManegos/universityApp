@@ -17,6 +17,9 @@
                             <div class="col-lg-6 align-self-center">
                                 <span>{{$user->first_name.' '.$user->last_name}}</span>
                             </div>
+                            <input type="hidden" id="user_to_id" value="{{$user->id}}">
+                            <input type="hidden" id="user_from_id" value="{{ \Illuminate\Support\Facades\Auth::user()->id }}">
+
                         </div>
                     </div>
                     @if(Auth::user()->id != $user->id)
@@ -48,4 +51,28 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+        $(document).ready(function(){
+            $("#add_friend").click(function () {
+               var user_to = $("#user_to_id").val();
+               var user_from = $("#user_from_id").val();
+
+               $.ajax({
+                   url:'addFriendRequest',
+                   type: 'POST',
+                   data: {
+                       _token: CSRF_TOKEN,
+                       user_to: user_to,
+                       user_from: user_from
+                   },
+                   success: function () {
+                       alert("Added Successfully");
+                   }
+               });
+
+            });
+        });
+    </script>
 @endsection

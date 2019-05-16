@@ -11,8 +11,7 @@ class CreateFriendRequestsTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
+    public function up(){
         Schema::create('friend_requests', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('user_to');

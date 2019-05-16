@@ -24,5 +24,7 @@ Route::group(['middleware' => 'role:user'],function (){
     Route::resource('/user','UserController');
     Route::resource('/profile','ProfileController');
     Route::resource('/course','CourseController');
-    Route::POST('addFriendRequest', 'FriendRequestController@addFriendRequest');
+    Route::POST('/addFriendRequest', 'FriendRequestController@addFriendRequest');
+    Route::POST('/deleteFriendRequest','FriendRequestController@deleteFriendRequest');
+
 });

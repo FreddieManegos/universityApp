@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\FriendRequest;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -50,7 +52,8 @@ class ProfileController extends Controller
     {
         //
         $user = User::findOrFail($id);
-        return view('users.index',compact('user'));
+        $friends = FriendRequest::where(['user_from' => Auth::user()->id, 'user_to'=> $id])->get();
+        return view('users.index',compact('user','friends'));
     }
 
     /**

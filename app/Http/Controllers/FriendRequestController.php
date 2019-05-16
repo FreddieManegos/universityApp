@@ -84,9 +84,19 @@ class FriendRequestController extends Controller
     }
 
     public function addFriendRequest(Request $request){
+        $ifExist = ['user_to' => $request->user_to, 'user_from' => $request->user_from];
 
-        $friend_request = new FriendRequest;
-        return $friend_request;
+        $check = FriendRequest::where($ifExist)->get();
+        if($check->count() < 1){
+            $friend_request = new FriendRequest;
+            $friend_request->user_to = $request->user_to;
+            $friend_request->user_from = $request->user_from;
+            $friend_request->save();
+        }
+    }
 
+    public function deleteFriendRequest(Request $request){
+        $ifExist = ['user_to' => $request->user_to, 'user_from' => $request->user_from];
+        FriendRequest::where($ifExist)->delete();
     }
 }
